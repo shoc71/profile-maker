@@ -9,4 +9,4 @@ def new_name(txt_filename, number_of_names):
             print(f"{n+1}. {fname} {lname}")
             # return f"{n+1}. {fname} {lname}"
 
-new_name("names.txt",100)
+new_name("names.txt",10)
