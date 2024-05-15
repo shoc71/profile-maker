@@ -1,7 +1,7 @@
-from remove_tabs_n_spaces import *
+from profile_resources.remove_tabs_n_spaces import *
 
 filename_test = 'test.txt'
-filename_adding_on = 'full_list_of_names.txt'
+filename_adding_on = 'profile_resources/names.txt'
 empty_string = ''
 
 # def read_notepad(notepad_name):
@@ -30,4 +30,4 @@ f.close()
 write_notepad(filename_test, empty_string)
 write_notepad(filename_adding_on, merging_string)
 
-from fast_unique_name_check import *
+from profile_resources.fast_unique_name_check import *
