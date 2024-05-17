@@ -1,9 +1,11 @@
 filepath = 'profile_resources/testing/test.txt'
-char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,'-' ,'.',
-             '"', "?", ":", ";", "”", "“", "[", "]", "|", "}", "{", "\\", "•"]
-indent_list = ['/',' ', '\t', ',']
+char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,  '=', "+", "·", '›',
+             '"', "?", ":", ";", "”", "“", "[", "]", "|", "}", "{", "\\", "•", "<", ">", '–',
+             "\"", "\'", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®"] # '.',
+indent_list = ['/',' ', '\t', ',', '.', '-']
 emoji_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
-              '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e']
+              '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e',
+              '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖']
 example = 'https://updater.com/moving-tips/first-apartment-checklist'
 
 def format_with_list(list_of_str, replace):
@@ -23,7 +25,8 @@ with open (filepath, 'r', encoding='utf-8') as f:
     lines = f.readlines()
     linestr = ''.join(lines).title()
     linestr = format_with_list(indent_list, '\n')
-    linestr = format_with_list(char_list, '')
+    linestr = format_with_list(char_list, '\n')
+    linestr = format_with_list(emoji_list, '\n')
     linestr = remove_extras(linestr)
 f.close()
 
