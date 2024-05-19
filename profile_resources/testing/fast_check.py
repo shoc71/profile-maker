@@ -19,3 +19,8 @@ with open (filepath, 'w', encoding='utf-8') as f:
     writing_string_line = ''.join(shuffled_list).title()
     f.write(writing_string_line)
 f.close()
+
+if len(shuffled_list) != len(lines):
+    print(f"Difference of -{(len(lines) - len(shuffled_list))}- words.")
+else:
+    print("No Change! :)")

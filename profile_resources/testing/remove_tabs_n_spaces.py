@@ -32,4 +32,6 @@ f.close()
 
 with open(filepath, 'w', encoding='utf-8') as f:
     f.write(linestr)
+    print("Program remove_tabs_n_spaces.py has run succesfully.")
+    print(f"The number of contents in test.txt is -{len(linestr)}-\n")
 f.close()

@@ -1,33 +1,34 @@
-from profile_resources.testing.remove_tabs_n_spaces import *
+import random
+from remove_tabs_n_spaces import *
+'''
+After crossing 100_000 unique names, the program began to slow down SIGNIFICANTLY.
+I wanted to quickly input the random names/words into the list and check if there were
+unique cases of it or not.
+'''
+filepath_for_names = 'profile_resources/names.txt'
+filepath_for_test = 'profile_resources/testing/test.txt'
 
-filename_test = 'test.txt'
-filename_adding_on = 'profile_resources/names.txt'
-empty_string = ''
+while True:
+    with open (filepath_for_test, 'r') as f:
+        test_list = f.readlines()
 
-# def read_notepad(notepad_name):
-#     with open (notepad_name, 'r', encoding='utf-8') as f:
-#         lines = f.readlines()
-#     f.close()
-#     return lines
+    with open (filepath_for_names, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+        print(f"Number of contents in names.txt before -{len(lines)}-")
+        string_lines = ','.join(lines).title()
+        line = list(set(string_lines.split(',') + test_list))
+        shuffled_list = random.sample(line, len(line))
 
-def write_notepad(notepad_name, string):
-    with open(notepad_name, 'w', encoding='utf-8') as file:
-        file.write(string)
-    file.close()
+    with open (filepath_for_names, 'w', encoding='utf-8') as f:
+        print(f"Number of contents in names.txt after -{len(shuffled_list)}-")
+        writing_string_line = ''.join(shuffled_list).title()
+        f.write(writing_string_line)
 
-with open (filename_test, 'r', encoding='utf-8') as f:
-    lines = f.readlines()
-f.close()
+    with open (filepath_for_test, 'w') as f:
+        f.write('')
 
-with open (filename_adding_on, 'r+', encoding='utf-8') as file:
-    more_lines = file.readlines()
-    mf_lines = more_lines + lines
-    merging_string = '\n'.join(mf_lines)
-f.close()
-
-# read_notepad(filename_test)
-# read_notepad(filename_adding_on)
-write_notepad(filename_test, empty_string)
-write_notepad(filename_adding_on, merging_string)
-
-from profile_resources.testing.fast_unique_name_check import *
+    if len(shuffled_list) != len(lines):
+        print(f"Difference of -[{(len(shuffled_list) - len(lines))}]- words.\n")
+    else:
+        print("No Change! :)")
+        break
