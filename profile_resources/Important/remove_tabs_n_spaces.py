@@ -1,4 +1,7 @@
+# Filepath and File
 filepath = 'profile_resources/input.txt'
+
+# List of Characters that need to be Removed
 char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,  '=', "+", "·", '›',
              '"', "?", ":", ";", "”", "“", "[", "]", "|", "}", "{", "\\", "•", "<", ">", '–',
              "\"", "\'", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«"] # '.',
@@ -8,6 +11,7 @@ emoji_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊
               '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆']
 example = 'https://updater.com/moving-tips/first-apartment-checklist'
 
+# Formating any mentioned characters
 def format_with_list(list_of_str, replace):
     global linestr
     linestr = str(linestr)
@@ -15,12 +19,14 @@ def format_with_list(list_of_str, replace):
         linestr = linestr.replace(list_of_str[line], replace)
     return linestr
 
+# Removing any extras space
 def remove_extras(string):
     lirt = str(string).split("\n")
     n_list = list(dict.fromkeys(lirt))
     lirt_str = '\n'.join(n_list).title()
     return lirt_str
 
+# Opening and Reading Input File
 with open (filepath, 'r', encoding='utf-8') as f:
     lines = f.readlines()
     linestr = ''.join(lines).title()
@@ -29,6 +35,7 @@ with open (filepath, 'r', encoding='utf-8') as f:
     linestr = format_with_list(emoji_list, '\n')
     linestr = remove_extras(linestr)
 
+# Writing on File and UI of the Number of Contents in Input.txt
 with open(filepath, 'w', encoding='utf-8') as f:
     f.write(linestr)
     print("Program remove_tabs_n_spaces.py has run succesfully.")
