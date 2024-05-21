@@ -4,7 +4,8 @@ filepath = 'profile_resources/input.txt'
 # List of Characters that need to be Removed
 char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,  '=', "+", "·", '›',
              '"', "?", ":", ";", "”", "“", "[", "]", "|", "}", "{", "\\", "•", "<", ">", '–',
-             "\"", "\'", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«"] # '.',
+             "\"", "\'", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«",
+             '©'] # '.',
 indent_list = ['/',' ', '\t', ',', '.', '-']
 emoji_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
               '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e',
@@ -38,5 +39,5 @@ with open (filepath, 'r', encoding='utf-8') as f:
 # Writing on File and UI of the Number of Contents in Input.txt
 with open(filepath, 'w', encoding='utf-8') as f:
     f.write(linestr)
-    print("Program remove_tabs_n_spaces.py has run succesfully.")
-    print(f"The number of contents in test.txt is -{len(linestr)}-\n")
+    print("\nProgram remove_tabs_n_spaces.py has run succesfully.")
+    print(f"The number of contents in test.txt is -{len(lines)}-\n")

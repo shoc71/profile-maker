@@ -20,7 +20,7 @@ while True:
     # Opening and Reading Names File
     with open (filepath_for_names, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-        print(f"Number of contents in names.txt before -{len(lines)}-")
+        print(f"Number of contents in names.txt before input -{len(lines)}-")
         string_lines = ','.join(lines).title()
         
         # Removing any duplicates when merging New Inputs and Current Names List
@@ -31,7 +31,7 @@ while True:
 
     # Opening and Writing Names List
     with open (filepath_for_names, 'w', encoding='utf-8') as f:
-        print(f"Number of contents in names.txt after -{len(shuffled_list)}-")
+        print(f"Number of contents in names.txt after input -{len(shuffled_list)}-\n")
         writing_string_line = ''.join(shuffled_list).title()
         f.write(writing_string_line)
 
@@ -41,9 +41,10 @@ while True:
 
     # UI - difference in list size until they equal the same 
     if len(shuffled_list) != len(lines):
-        print(f"Difference of -[{(len(shuffled_list) - len(lines))}]- words.\n")
+        print(f"Difference of -[{(len(shuffled_list) - len(lines))}]- words bewteen Old and New Names.txt file(s).\n")
     else:
         
         # Break the loop when no more duplicates are found
-        print("No Change! :)")
+        print("Input.txt has been cleared and ready to use.")
+        print("End of Program. No Changes to Report :)\n")
         break
