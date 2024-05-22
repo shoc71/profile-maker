@@ -52,6 +52,6 @@ while True:
         format_possibilities = '{:0.3e}'.format(lines_list_counted ** 2) # underrated way to round big numbers
         print("Input.txt has been cleared and ready to use.")
         print(f"There are now -{format_possibilities}- number of possibilities,\
-(Assuming a first and Last name only.)")
+(Assuming a First and Last name only.)")
         print("End of Program. No Changes to Report :)\n")
         break
