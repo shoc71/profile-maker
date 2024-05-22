@@ -1,6 +1,8 @@
 # Imports
 import random
 from Important.remove_tabs_n_spaces import *
+
+# Docstring
 '''
 After crossing 100_000 unique names, the program began to slow down SIGNIFICANTLY.
 I wanted to quickly input the random names/words into the list and check if there were
@@ -20,7 +22,8 @@ while True:
     # Opening and Reading Names File
     with open (filepath_for_names, 'r', encoding='utf-8') as f:
         lines = f.readlines()
-        print(f"Number of contents in names.txt before input -{len(lines)}-")
+        lines_list_counted = len(lines)
+        print(f"Number of contents in names.txt before input -{lines_list_counted}-")
         string_lines = ','.join(lines).title()
         
         # Removing any duplicates when merging New Inputs and Current Names List
@@ -28,10 +31,11 @@ while True:
         
         # Shuffling the List for Variance
         shuffled_list = random.sample(line, len(line))
+        shuffled_list_counted = len(shuffled_list)
 
     # Opening and Writing Names List
     with open (filepath_for_names, 'w', encoding='utf-8') as f:
-        print(f"Number of contents in names.txt after input -{len(shuffled_list)}-\n")
+        print(f"Number of contents in names.txt after input -{shuffled_list_counted}-\n")
         writing_string_line = ''.join(shuffled_list).title()
         f.write(writing_string_line)
 
@@ -40,11 +44,14 @@ while True:
         f.write('')
 
     # UI - difference in list size until they equal the same 
-    if len(shuffled_list) != len(lines):
-        print(f"Difference of -[{(len(shuffled_list) - len(lines))}]- words bewteen Old and New Names.txt file(s).\n")
+    if shuffled_list_counted != lines_list_counted:
+        print(f"Difference of -[{shuffled_list_counted - lines_list_counted}]- words bewteen Old and New Names.txt file(s).\n")
     else:
         
         # Break the loop when no more duplicates are found
+        format_possibilities = '{:0.3e}'.format(lines_list_counted ** 2) # underrated way to round big numbers
         print("Input.txt has been cleared and ready to use.")
+        print(f"There are now -{format_possibilities}- number of possibilities,\
+(Assuming a first and Last name only.)")
         print("End of Program. No Changes to Report :)\n")
         break
