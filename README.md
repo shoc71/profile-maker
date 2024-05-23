@@ -1,4 +1,4 @@
-# profile-maker
+# Profile Maker
 
 With over, 
 # 500,000 unique names,
