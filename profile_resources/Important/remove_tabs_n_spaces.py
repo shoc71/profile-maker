@@ -13,7 +13,7 @@ emoji_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊
 example = 'https://updater.com/moving-tips/first-apartment-checklist'
 
 # Formating any mentioned characters
-def format_with_list(list_of_str, replace):
+def formatting_string(list_of_str, replace) -> str:
     global linestr
     linestr = str(linestr)
     for line in range(len(list_of_str)):
@@ -21,20 +21,32 @@ def format_with_list(list_of_str, replace):
     return linestr
 
 # Removing any extras space
-def remove_extras(string):
+def remove_extras(string) -> str:
     lirt = str(string).split("\n")
     n_list = list(dict.fromkeys(lirt))
-    lirt_str = '\n'.join(n_list).title()
+    lirt_str = '\n'.join(n_list)
     return lirt_str
+
+# Splitting Title Case Words 
+def split_title_case(string) -> str:
+    newstring = ''
+    for letter in string:
+        # Check if character is uppercase and a letter
+        if letter == letter.upper() and letter.isalpha():
+            newstring += '\n' + letter
+        else:
+            newstring += letter
+    return newstring
 
 # Opening and Reading Input File
 with open (filepath, 'r', encoding='utf-8') as f:
     lines = f.readlines()
-    linestr = ''.join(lines).title()
-    linestr = format_with_list(indent_list, '\n')
-    linestr = format_with_list(char_list, '\n')
-    linestr = format_with_list(emoji_list, '\n')
-    linestr = remove_extras(linestr)
+    linestr = ''.join(lines)
+    linestr = split_title_case(linestr)
+    linestr = formatting_string(indent_list, '\n')
+    linestr = formatting_string(char_list, '\n')
+    linestr = formatting_string(emoji_list, '\n')
+    linestr = remove_extras(linestr).title()
 
 # Writing on File and UI of the Number of Contents in Input.txt
 with open(filepath, 'w', encoding='utf-8') as f:
