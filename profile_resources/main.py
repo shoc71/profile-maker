@@ -27,7 +27,8 @@ while True:
         string_lines = ','.join(lines).title()
         
         # Removing any duplicates when merging New Inputs and Current Names List
-        line = list(set(string_lines.split(',') + input_list))
+        line = list(set(string_lines.split(',')))
+        line = list(set(line + input_list))
         
         # Shuffling the List for Variance
         shuffled_list = random.sample(line, len(line))
