@@ -1,6 +1,7 @@
 # Imports
 import random
 from Important.remove_tabs_n_spaces import *
+import os
 
 # Docstring
 '''
@@ -9,8 +10,12 @@ I wanted to quickly input the random names/words into the list and check if ther
 unique cases of it or not.
 '''
 # Filepaths and Files
+# filepath_for_names = 'profile_resources/temp.txt'
 filepath_for_names = 'profile_resources/names.txt'
 filepath_for_input = 'profile_resources/input.txt'
+filepath_for_tracker = 'profile_resources/Important/tracker.txt'
+
+
 
 # Loop until All Instances of That Case Are Removed
 while True:
@@ -24,6 +29,7 @@ while True:
         lines = f.readlines()
         lines_list_counted = len(lines)
         print(f"Number of contents in names.txt before input -{lines_list_counted}-")
+
         string_lines = ','.join(lines).title()
         
         # Removing any duplicates when merging New Inputs and Current Names List
@@ -34,6 +40,11 @@ while True:
         shuffled_list = random.sample(line, len(line))
         shuffled_list_counted = len(shuffled_list)
 
+    # if there's nothing in the text_file then break loop
+        if (lines_list_counted <= 0) and (shuffled_list_counted <=0):
+            print("Add some random stuff to the input.txt file.")
+            break
+
     # Opening and Writing Names List
     with open (filepath_for_names, 'w', encoding='utf-8') as f:
         print(f"Number of contents in names.txt after input -{shuffled_list_counted}-\n")
@@ -43,6 +54,10 @@ while True:
     # Emptying the Input List
     with open (filepath_for_input, 'w', encoding='utf-8') as f:
         f.write('')
+
+    # Keeping Track of all the instances this program has been run (for fun from now on.)
+    with open (filepath_for_tracker, 'r', encoding='utf-8', errors='ignore') as file:
+        file.read()
 
     # UI - difference in list size until they equal the same 
     if shuffled_list_counted != lines_list_counted:
