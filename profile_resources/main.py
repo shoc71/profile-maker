@@ -1,7 +1,7 @@
 # Imports
 import random
 from Important.remove_tabs_n_spaces import *
-import os
+from Important import tracker
 
 # Docstring
 '''
@@ -14,8 +14,6 @@ unique cases of it or not.
 filepath_for_names = 'profile_resources/names.txt'
 filepath_for_input = 'profile_resources/input.txt'
 filepath_for_tracker = 'profile_resources/Important/tracker.txt'
-
-
 
 # Loop until All Instances of That Case Are Removed
 while True:
@@ -55,10 +53,6 @@ while True:
     with open (filepath_for_input, 'w', encoding='utf-8') as f:
         f.write('')
 
-    # Keeping Track of all the instances this program has been run (for fun from now on.)
-    with open (filepath_for_tracker, 'r', encoding='utf-8', errors='ignore') as file:
-        file.read()
-
     # UI - difference in list size until they equal the same 
     if shuffled_list_counted != lines_list_counted:
         print(f"Difference of -[{shuffled_list_counted - lines_list_counted}]- words bewteen Old and New Names.txt file(s).\n")
@@ -70,4 +64,7 @@ while True:
         print(f"There are now -{format_possibilities}- number of possibilities,\
  (Assuming a First and Last name only.)")
         print("End of Program. No Changes to Report :)\n")
+        
+        # Keeping Track of all the instances this program has been run (for fun from now on.)
+        tracker.track_program_runs(filepath_for_tracker)
         break

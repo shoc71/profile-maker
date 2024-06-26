@@ -7,9 +7,9 @@ char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,  '=', 
              "\"", "\'", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«",
              '©', '™', '—'] # '.',
 indent_list = ['/',' ', '\t', ',', '.'] #, '-']
-emoji_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
+extras_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
               '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e',
-              '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆']
+              '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆', "‎", "▾"]
 example = 'https://updater.com/moving-tips/first-apartment-checklist'
 
 # Formating any mentioned characters
@@ -45,7 +45,7 @@ with open (filepath, 'r', encoding='utf-8') as f:
     linestr = split_title_case(linestr)
     linestr = formatting_string(indent_list, '\n')
     linestr = formatting_string(char_list, '\n')
-    linestr = formatting_string(emoji_list, '\n')
+    linestr = formatting_string(extras_list, '\n')
     linestr = remove_extras(linestr).title()
 
 # Writing on File and UI of the Number of Contents in Input.txt

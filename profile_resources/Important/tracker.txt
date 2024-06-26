@@ -1,2 +1,2 @@
-Number of times this program has been run : 1
-Starting number of entries since this code began : 5  (lmoa)
+Number of times this program has been run : 3
+Starting number of entries since this code began : fifteen (lmao)
