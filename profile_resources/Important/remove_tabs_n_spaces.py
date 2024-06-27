@@ -10,6 +10,8 @@ indent_list = ['/',' ', '\t', ',', '.'] #, '-']
 extras_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
               '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e',
               '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆', "‎", "▾"]
+brands_list = ["Discord", "Twitter", "Instagram", "YouTube", "News", "PayPal", "Patreon", "Ko-fi"]
+
 example = 'https://updater.com/moving-tips/first-apartment-checklist'
 
 # Formating any mentioned characters
@@ -46,6 +48,7 @@ with open (filepath, 'r', encoding='utf-8') as f:
     linestr = formatting_string(indent_list, '\n')
     linestr = formatting_string(char_list, '\n')
     linestr = formatting_string(extras_list, '\n')
+    linestr = formatting_string(brands_list, '\n')
     linestr = remove_extras(linestr).title()
 
 # Writing on File and UI of the Number of Contents in Input.txt
