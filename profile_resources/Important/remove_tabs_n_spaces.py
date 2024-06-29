@@ -4,12 +4,18 @@ filepath = 'profile_resources/input.txt'
 # List of Characters that need to be Removed
 char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,  '=', "+", "·", '›',
              '"', "?", ":", ";", "”", "“", "[", "]", "|", "}", "{", "\\", "•", "<", ">", '–',
-             "\"", "\'", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«",
-             '©', '™', '—'] # '.',
-indent_list = ['/',' ', '\t', ',', '.'] #, '-']
+             "\"", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«",
+             '©', '™', "’", "‘"] #, "\'", '—'] 
+
+indent_list = ['/', '\t', ',', '.'] #, ".", '-']
+
 extras_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
               '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e',
-              '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆', "‎", "▾"]
+              '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆', "‎", 
+              "▾","🏔️"]
+
+space_list = [' ']
+
 brands_list = ["Discord", "Twitter", "Instagram", "YouTube", "News", "PayPal", "Patreon", "Ko-fi"]
 
 example = 'https://updater.com/moving-tips/first-apartment-checklist'
@@ -29,7 +35,7 @@ def remove_extras(string) -> str:
     lirt_str = '\n'.join(n_list)
     return lirt_str
 
-# Splitting Title Case Words 
+# Splitting Title Case Words
 def split_title_case(string) -> str:
     newstring = ''
     for letter in string:
@@ -40,15 +46,30 @@ def split_title_case(string) -> str:
             newstring += letter
     return newstring
 
+
+# Fixing apostrophe
+def fixing_apostrophe(name: str) -> str:
+    # Ensure apostrophe is followed by a lowercase letter
+    parts = name.split("'")
+    if len(parts) > 1:
+        for i in range(1, len(parts)):
+            if parts[i] and parts[i][0].isupper():
+                parts[i] = parts[i][0].lower() + parts[i][1:]
+        name = "'".join(parts)
+    return name
+
+
 # Opening and Reading Input File
 with open (filepath, 'r', encoding='utf-8') as f:
     lines = f.readlines()
     linestr = ''.join(lines)
     linestr = split_title_case(linestr)
+    linestr = formatting_string(space_list, "-")
     linestr = formatting_string(indent_list, '\n')
     linestr = formatting_string(char_list, '\n')
     linestr = formatting_string(extras_list, '\n')
     linestr = formatting_string(brands_list, '\n')
+    linestr = fixing_apostrophe(linestr)
     linestr = remove_extras(linestr).title()
 
 # Writing on File and UI of the Number of Contents in Input.txt
