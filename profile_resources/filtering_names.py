@@ -13,9 +13,10 @@ correct_words = []
 filepath_for_names = 'profile_resources/names.txt'
 
 english_characters = list(string.ascii_letters)
-additional_characters = ["\'","-"]
+additional_characters = ["\'", "-", ".", "…"]
+number_characters = list(string.digits)
 # additional_characters = ["-"]
-total_characters = english_characters + additional_characters
+total_characters = english_characters + additional_characters + number_characters
 
 with open(filepath_for_names, mode='r', encoding='utf-8', errors='ignore') as file:
     lines = file.readlines()
