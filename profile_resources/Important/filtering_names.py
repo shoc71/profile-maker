@@ -1,6 +1,6 @@
 # imports
 import string
-from Important.add_on_list import special_list
+from add_on_list import special_list
 
 # global variables
 num = 0
