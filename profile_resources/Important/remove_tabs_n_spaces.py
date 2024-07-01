@@ -1,3 +1,15 @@
+# imports
+try: 
+    from Important.formatting_list_contents import indent_list, space_dash_list
+    from Important.brands import brands_list
+    from Important.extras_and_emojis import extras_list
+    from Important.character_list import char_list
+except:
+    from formatting_list_contents import indent_list, space_dash_list
+    from brands import brands_list
+    from extras_and_emojis import extras_list
+    from character_list import char_list
+
 # Filepath and File
 filepath = 'profile_resources/input.txt'
 
