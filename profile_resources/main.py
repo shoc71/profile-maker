@@ -19,11 +19,11 @@ filepath_for_tracker = 'profile_resources/Important/tracker.txt'
 while True:
     
     #  Opening and Reading Input File
-    with open (filepath_for_input, 'r', encoding='utf-8') as f:
+    with open (filepath_for_input, 'r', encoding='utf-8', errors='ignore') as f:
         input_list = f.readlines()
         
     # Opening and Reading Names File
-    with open (filepath_for_names, 'r', encoding='utf-8') as f:
+    with open (filepath_for_names, 'r', encoding='utf-8', errors='ignore') as f:
         lines = f.readlines()
         lines_list_counted = len(lines)
         print(f"Number of contents in names.txt before input -{lines_list_counted}-")
@@ -44,13 +44,13 @@ while True:
             break
 
     # Opening and Writing Names List
-    with open (filepath_for_names, 'w', encoding='utf-8') as f:
+    with open (filepath_for_names, 'w', encoding='utf-8', errors='ignore') as f:
         print(f"Number of contents in names.txt after input -{shuffled_list_counted}-\n")
         writing_string_line = ''.join(shuffled_list).title()
         f.write(writing_string_line)
 
     # Emptying the Input List
-    with open (filepath_for_input, 'w', encoding='utf-8') as f:
+    with open (filepath_for_input, 'w', encoding='utf-8', errors='ignore') as f:
         f.write('')
 
     # UI - difference in list size until they equal the same 
