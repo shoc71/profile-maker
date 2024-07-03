@@ -73,8 +73,8 @@ def fixing_apostrophe(name: str) -> str:
 
 # Opening and Reading Input File
 with open (filepath, 'r', encoding='utf-8') as f:
-    lines = f.readlines()
-    linestr = ''.join(lines)
+    current_names = f.readlines()
+    linestr = ''.join(current_names)
     linestr = split_title_case(linestr)
     linestr = formatting_string(space_list, "-")
     linestr = formatting_string(indent_list, '\n')
@@ -88,4 +88,4 @@ with open (filepath, 'r', encoding='utf-8') as f:
 with open(filepath, 'w', encoding='utf-8') as f:
     f.write(linestr)
     print("\nProgram remove_tabs_n_spaces.py has run succesfully.")
-    print(f"The number of contents in test.txt is -{len(lines)}-\n")
+    print(f"The number of contents in input.txt is -{len(current_names)}-\n")
