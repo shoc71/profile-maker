@@ -1,6 +1,8 @@
-# imports
 import string
-from add_on_list import special_list
+try:
+    from profile_resources.Important.special_characters import special_list_all
+except:
+    from special_characters import special_list_all
 
 # global variables
 num = 0
@@ -8,7 +10,7 @@ pos = 0
 count = 0
 eng_count = 0
 nonsense_count = 0
-non_english_words = {}
+non_english_words = []
 correct_words = []
 
 # target file
@@ -17,7 +19,7 @@ filepath_for_names = 'profile_resources/names.txt'
 english_characters = list(string.ascii_letters)
 additional_characters = ["\'", "-", ".", "…"]
 number_characters = list(string.digits)
-total_characters = english_characters + additional_characters + number_characters + special_list
+total_characters = english_characters + additional_characters + number_characters + special_list_all
 
 with open(filepath_for_names, mode='r', encoding='utf-8', errors='ignore') as file:
     lines = file.readlines()
@@ -46,7 +48,7 @@ while num < len(lines):
 
         # If there is no english character in the word of the name of the current position
         elif (name[pos]) not in total_characters:
-            non_english_words[num] = name
+            non_english_words.append(name)
             nonsense_count += 1
             # print("Found non ascii_letter character")
             count += 1
