@@ -10,7 +10,7 @@ pos = 0
 count = 0
 eng_count = 0
 nonsense_count = 0
-non_english_words = []
+non_english_words = {}
 correct_words = []
 
 # target file
@@ -48,7 +48,7 @@ while num < len(lines):
 
         # If there is no english character in the word of the name of the current position
         elif (name[pos]) not in total_characters:
-            non_english_words.append(name)
+            non_english_words[num - 1] = name
             nonsense_count += 1
             # print("Found non ascii_letter character")
             count += 1

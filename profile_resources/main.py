@@ -46,7 +46,7 @@ while True:
 
     # Opening and Writing Names List
     with open (filepath_for_names, 'w', encoding='utf-8', errors='ignore') as f:
-        print(f"Number of contents in names.txt after input -{combined_names_count}-\n")
+        print(f"Number of contents in names.txt after input: {combined_names_count}\n")
         writing_string_line = '\n'.join(combined_names) # Join list into a string with newlines and write to file
         f.write(writing_string_line)
 

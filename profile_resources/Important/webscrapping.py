@@ -39,6 +39,7 @@ def scrapping_words(url):
 
     for word_elem in word_elements:
         # Split the text content by whitespace to separate individual words
+        # Get text of the element and clean it
         words.extend(word_elem.get_text().split())
 
     # words = [word_elem.text for word_elem in parent_element]
@@ -72,7 +73,8 @@ def are_words_same(prev_words, curr_words):
     return prev_words == curr_words
 
 # Base URL for the pages to scrape
-letters = "abcdefghijklmnopqrstuvwxyz"
+# letters = "abcdefghijklmnopqrstuvwxyz"
+letters = "a"
 # base_url = "https://www.dictionary.com/list/"
 base_url = 'https://www.merriam-webster.com/browse/dictionary/'
 
@@ -90,6 +92,7 @@ for letter in letters:
     while True:
         # Construct the URL for the current page
         url = f"{base_url_letter}{page_number}"
+        url = f"{base_url}geo/{page_number}"
         
         try:
             response = requests.get(url)
