@@ -19,7 +19,7 @@ correct_words = []
 filepath_for_names = 'profile_resources/names.txt'
 
 english_characters = list(string.ascii_letters)
-additional_characters = [".", "…"] # ("-", "\'") was taken out
+additional_characters = [".", "…", "\'", "-"] # ("-", "\'") was taken out
 number_characters = list(string.digits)
 total_characters = english_characters + additional_characters + number_characters + special_list_all
 
