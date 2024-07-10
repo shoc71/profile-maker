@@ -1,7 +1,7 @@
 # Profile Maker
 
 With over, 
-# 600,000 unique names,
+# 900,000 unique names,
 in the names.txt list, you can make a zillion unique names to your heart's desire.
 Just download the repository or take whatever resources you like but at least credit this repository.
 
