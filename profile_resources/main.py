@@ -36,7 +36,7 @@ while True:
     line = list(set(line + input_list))
     
     combined_names = list(set(current_names + input_list))
-    # random.shuffle(combined_names)
+    random.shuffle(combined_names)
     combined_names_count = len(combined_names)
 
     # if there's nothing in the text_file then break loop
