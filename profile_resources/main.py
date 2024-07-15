@@ -1,7 +1,9 @@
 # Imports
 import random
-# from Important.remove_tabs_n_spaces import *
-from Important import tracker
+import time
+start_time = time.time()
+from Important.remove_tabs_n_spaces import *
+from Important import program_tracker
 
 # Docstring
 '''
@@ -11,7 +13,7 @@ unique cases of it or not.
 '''
 # Filepaths and Files
 # filepath_for_names = 'profile_resources/temp.txt'
-filepath_for_names = 'profile_resources/names.txt'
+filepath_for_names = 'profile_resources/names_list/names.txt'
 filepath_for_input = 'profile_resources/input.txt'
 filepath_for_tracker = 'profile_resources/Important/tracker.txt'
 
@@ -61,12 +63,15 @@ while True:
     else:
         
         # Break the loop when no more duplicates are found
+        end_time = time.time()
+        total_run_time = program_tracker.formatted_runtime(start_time=start_time, end_time=end_time)
         format_possibilities = '{:0.3e}'.format(current_names_count ** 2) # underrated way to round big numbers
-        print(f"Input.txt has been cleared and ready to use.\n"
+        print(f"Input.txt has been cleared and is ready to use.\n"
               f"There are now -{format_possibilities}- number of possibilities, "
               f"(Assuming a First and Last name only).\n"
+              f"Elapsed time: {total_run_time} to run.\n"
               f"End of Program. No Changes to Report :)\n")
-        
+              
         # Keeping Track of all the instances this program has been run (for fun from now on.)
-        tracker.track_program_runs(filepath_for_tracker)
+        program_tracker.track_program_runs(filepath_for_tracker)
         break

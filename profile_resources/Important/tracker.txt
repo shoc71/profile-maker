@@ -1,4 +1,8 @@
-Number of times this code has been run : 110
+Number of times this code has been run : 119
 Initial count was 15 lol...
 
-Code was last run on 14/Jul/2024 on 17:17:26
+Code was last run on 14/Jul/2024 on 22:44:40
+
+Number of notepad containing all the names: 
+
+Total Number of Names: 
