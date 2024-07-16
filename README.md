@@ -1,5 +1,8 @@
 # Profile Maker
 
+## Biggest list of names that you'll find on the internet. 
+(If you like to submit a bunch of words that you think isn't on this list, add everything to input.txt and run the code.) 
+
 With over, 
 # 900,000 unique names,
 in the names.txt list, you can make a zillion unique names to your heart's desire.
