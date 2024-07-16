@@ -73,5 +73,5 @@ while True:
               f"End of Program. No Changes to Report :)\n")
               
         # Keeping Track of all the instances this program has been run (for fun from now on.)
-        program_tracker.track_program_runs(filepath_for_tracker)
+        program_tracker.track_program_runs(filepath_for_tracker, combined_names_count)
         break
