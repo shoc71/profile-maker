@@ -6,7 +6,7 @@ import os
 total count and last runtime
 '''
 
-def track_program_runs(notepad_file, total_name_count):
+def track_program_runs(notepad_file, total_name_count, runtime):
 
     with open (notepad_file, 'r', encoding='utf-8', errors='ignore') as file:
         lines = file.read()
@@ -15,6 +15,7 @@ def track_program_runs(notepad_file, total_name_count):
     lines = track_program_last_run(lines)
     lines = track_program_run_count(lines)
     lines = notepad_word_count(lines, total_name_count)
+    lines = program_runtime(lines, runtime)
 
     with open (notepad_file, 'w', encoding='utf-8', errors='ignore') as file:
         file.write(lines)
@@ -42,6 +43,10 @@ def notepad_word_count(string: str, count: int) -> str:
     string = re.sub(r"^Total Number of Names: \d+$", f"Total Number of Names: {count}", string, flags=re.MULTILINE)
     return string
 
+def program_runtime(string: str, runtime):
+    string = re.sub(r"^Last run_time of the program was:.*$", f"Last run_time of the program was: {runtime}", string, flags=re.MULTILINE)
+    return string
+
 def formatted_runtime(start_time, end_time):
     total_seconds = end_time - start_time
 
@@ -53,7 +58,7 @@ def formatted_runtime(start_time, end_time):
     # Convert milliseconds to integer and format it to three decimal places
     milliseconds = int(milliseconds * 1000)
 
-    formatted_time='This program took\t'
+    formatted_time=''
     if days > 0:
         formatted_time += f"{days} days"
     if hours > 0:
