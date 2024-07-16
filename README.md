@@ -5,7 +5,7 @@
 
 With over, 
 # 900,000 unique names,
-in the names.txt list, you can make a zillion unique names to your heart's desire.
+in the names_list directory, you can make a zillion unique names to your heart's desire.
 Just download the repository or take whatever resources you like but at least credit this repository.
 
 ### -----------
