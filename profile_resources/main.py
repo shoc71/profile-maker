@@ -49,12 +49,8 @@ while True:
     if (combined_names_count <= 0) and (name_of_names_count <= 0):
         print("Add some content in any of the files.")
         break
-
-    if (combined_names_count) != (name_of_names_count):
-        print(f"Difference of -[{combined_names_count - name_of_names_count}]- words bewteen Old and New Names.txt file(s).\n")
     
-    else: 
-        for i in range(1, notepad_count + 1): # ranges end 1 before, so the +1 is to make up for it
+    for i in range(1, notepad_count + 1): # ranges end 1 before, so the +1 is to make up for it
             if i <= 9:
                 file_name = (f"{list_dir_of_names}names_000{i}.txt")
                 combined_names = notepad.writing_into_file(total_list=combined_names, file_name=file_name, divisible_count=divisible_count)
@@ -67,7 +63,10 @@ while True:
                 file_name = (f"{list_dir_of_names}names_0{i}.txt")
                 combined_names = notepad.writing_into_file(total_list=combined_names, file_name=file_name, divisible_count=divisible_count)
 
-        # Break the loop when no more duplicates are found
+    if (combined_names_count) != (name_of_names_count):
+        print(f"Difference of -[{combined_names_count - name_of_names_count}]- words bewteen Old and New Names.txt file(s).\n")
+
+    if (combined_names_count) == (name_of_names_count): 
         end_time = time.time()
         total_run_time = program_tracker.formatted_runtime(start_time=start_time, end_time=end_time)
         format_possibilities = '{:0.3e}'.format(name_of_names_count ** 2) # underrated way to round big numbers
