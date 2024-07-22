@@ -18,10 +18,12 @@ def notepad_function(file, mode, contents = False):
         with open(file=file, mode='r', encoding='utf-8', errors='ignore') as file:
             lines = file.read().splitlines()
         return lines
+    
     if (mode == 'w'):
         if (contents == False):
             with open(file=file, mode='w', encoding='utf-8', errors='ignore') as file:
                 file.write('')
+
         else:
             if isinstance(contents, str):
                 with open(file=file, mode='w', encoding='utf-8', errors='ignore') as file:
@@ -40,6 +42,7 @@ def writing_into_file(total_list, file_name, divisible_count):
         notepad_function(file=file_name,mode='w',contents=sum_100k_list)
         notepad_function(file=filepath_for_input,mode='w')
         return []
+    
     else:
         sum_100k_list += total_list[0:divisible_count]
         # print(sum_100k_list)
