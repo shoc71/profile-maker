@@ -1,36 +1,21 @@
 # imports
 try: 
-    from Important.formatting_list_contents import indent_list, space_dash_list
-    from Important.brands import brands_list
-    from Important.extras_and_emojis import extras_list
-    from Important.character_list import char_list
+    from character_filter.formatting_list_contents import indent_list
+    from character_filter.brands import brands_list
+    from character_filter.extras_and_emojis import extras_list
+    from character_filter.character_list import char_list
+    from character_filter.special_characters import special_list_all
 except:
-    from formatting_list_contents import indent_list, space_dash_list
-    from brands import brands_list
-    from extras_and_emojis import extras_list
-    from character_list import char_list
+    from Important.character_filter.formatting_list_contents import indent_list
+    from Important.character_filter.brands import brands_list
+    from Important.character_filter.extras_and_emojis import extras_list
+    from Important.character_filter.character_list import char_list
+    from Important.character_filter.special_characters import special_list_all
 
 # Filepath and File
 filepath = 'profile_resources/input.txt'
 
-# List of Characters that need to be Removed
-char_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '(' ,')' ,  '=', "+", "·", '›',
-             '"', "?", ":", ";", "”", "“", "[", "]", "|", "}", "{", "\\", "•", "<", ">", "ʿ",
-             "\"", "!", "@", "#", "$", "%", "^", "&", "*", "~", "`", "§", "®", "»", "«",
-             '©', '™', "’", "‘"] #, "\'", '—'] 
-
-indent_list = ['/', '\t', ',', '.'] #, ".", '-']
-
-extras_list = ['©', '🍓', '🔥', '🏆', '🦸', '🍑', '�', '💚', '🕊', '🌳', '🌙',
-              '🐅', '🏔', '🎨', '💙', '🧚', '💸', '⭐', '☀', '❄', '🌊', '\\u200e',
-              '🌐', '💀', '😍', '👌', '👍', '🚀', '📈', '🤖', '☆', "‎", 
-              "▾", "🏔️", "✅", "👋", "🎤"]
-
 space_list = [' ', '–', "−"]
-
-brands_list = ["Discord", "Twitter", "Instagram", "YouTube", "News", "PayPal", "Patreon", "Ko-fi"]
-
-example = 'https://updater.com/moving-tips/first-apartment-checklist'
 
 # Formating any mentioned characters
 def formatting_string(list_of_str, replace) -> str:
@@ -79,6 +64,7 @@ with open (filepath, 'r', encoding='utf-8') as f:
     linestr = formatting_string(space_list, "\n")
     linestr = formatting_string(indent_list, '\n')
     linestr = formatting_string(char_list, '\n')
+    linestr = formatting_string(special_list_all, "\n")
     linestr = formatting_string(extras_list, '\n')
     linestr = formatting_string(brands_list, '\n')
     linestr = fixing_apostrophe(linestr)

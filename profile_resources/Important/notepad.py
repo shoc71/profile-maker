@@ -12,7 +12,7 @@ def notepad_function(file, mode, contents = False):
     
     RETURNS:
         if 'r', A list of strings split on spaces
-        if 'w', writes on the 
+        if 'w', writes on the notepad, defaults to blank if contents=False
     """
     if (mode == 'r'):
         with open(file=file, mode='r', encoding='utf-8', errors='ignore') as file:

@@ -3,7 +3,7 @@ import random
 import time
 start_time = time.time()
 from Important.remove_tabs_n_spaces import *
-from Important import program_tracker
+from profile_resources.Important.tracker import program_tracker
 
 # Docstring
 '''

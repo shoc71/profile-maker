@@ -2,9 +2,9 @@
 import string
 
 try:
-    from profile_resources.Important.special_characters import special_list_all
+    from character_filter.special_characters import special_list_all
 except:
-    from special_characters import special_list_all
+    from profile_resources.Important.character_filter.special_characters import special_list_all
 
 # global variables
 name_position = 0

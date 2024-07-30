@@ -5,7 +5,7 @@ import os
 
 start_time = time.time()
 from Important.remove_tabs_n_spaces import *
-from Important import program_tracker
+from Important.tracker import program_tracker
 from Important import notepad
 
 # Docstring
@@ -19,7 +19,7 @@ All the names have been split among all the other notepads with each one contain
 '''
 # Filepaths and Files
 filepath_for_input = 'profile_resources/input.txt'
-filepath_for_tracker = 'profile_resources/Important/tracker.txt'
+filepath_for_tracker = 'profile_resources/Important/tracker/tracker.txt'
 list_dir_of_names = 'profile_resources/names_list/'
 divisible_count = 100_000
 loop_1_total_name_count = 0
@@ -72,7 +72,7 @@ while True:
         total_run_time = program_tracker.formatted_runtime(start_time=start_time, end_time=end_time)
         format_possibilities = '{:0.3e}'.format(current_names_count ** 2) # underrated way to round big numbers
         print(f"Input.txt has been cleared and is ready to use.\n"
-                f"There are now -{format_possibilities}- number of possibilities, "
+                f"There are now -{format_possibilities}- number of possibilities, ", end=""
                 f"(Assuming a First and Last name only).\n"
                 f"Elapsed time: {total_run_time}.\n"
                 f"End of Program. No Changes to Report :)\n")
