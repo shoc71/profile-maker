@@ -22,8 +22,6 @@ filepath_for_input = 'profile_resources/input.txt'
 filepath_for_tracker = 'profile_resources/Important/tracker/tracker.txt'
 list_dir_of_names = 'profile_resources/names_list/'
 divisible_count = 100_000
-loop_1_total_name_count = 0
-loop_2_total_name_count = 0
 
 while True:
     names_list = []
