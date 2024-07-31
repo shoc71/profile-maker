@@ -115,8 +115,8 @@ divisible_count = 100_000
 
 ''''''
 
-looking_for_x_alien = 'ghm'
-alien_scaner_true = looking_for_x_alien
+looking_for_alien_x = input("\nWhat alien names are we looking for? : ")
+alien_scaner_true = looking_for_alien_x
 
 ''''''
 name_folder = 'profile_resources/names_list/'
@@ -137,10 +137,13 @@ for names_path in names_directory:
 for alien_path in aliens_directory:
     alien_names_list += notepad.notepad_function(file=alien_path, mode='r')
 
-# random.shuffle(main_names_list)
+print(f"\nSearching for aliens with '{alien_scaner_true}' as the search_term...")
 
-def alien_search(string):
+def alien_search(string: str):
     return alien_scaner_true.lower() in string.lower()
+
+def human_search(string: str):
+    return user_filter_text.lower() in string.lower()
 
 aliens_filtered = list(filter(alien_search, main_names_list))
 combined_alien_list = list(set(alien_names_list)) + aliens_filtered
@@ -149,17 +152,51 @@ old_alien_count = len(alien_names_list)
 
 alien_count = len(list(aliens_filtered))
 main_names_list = [alien_name for alien_name in main_names_list if alien_name not in aliens_filtered]
-new_total_name_count = len(main_names_list)
 
-random.shuffle(main_names_list)
-random.shuffle(alien_names_list)
+# random.shuffle(main_names_list)
+# random.shuffle(alien_names_list)
+print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n\n")
+print((aliens_filtered))
+
+running = True
+
+while running:
+
+    if alien_count == 0:
+        running = False
+        user_input = "n" # prevent user_input not declared error from raising
+        print(f"No aliens with '{alien_scaner_true}' in their name has been found.", end=" " 
+              f"This part of the program has been skipped.\n")
+    else:
+        user_input = input("This is the current list. Would you like to remove any accidental human adductions? (Y/N) : ")
+
+    if user_input in ["no", "n", "not", "nah"]:
+        running = False
+        alien_count = len(list(aliens_filtered))
+        new_total_name_count = len(main_names_list)
+
+    elif user_input in ["yes", "y", "ye", "yea"]:
+        old_alien_count_beta = len(list(aliens_filtered))
+        user_filter_text = input("Please enter the words/characters that you want removed. : ")
+        if user_filter_text == "quit":
+            continue
+        user_filter = list(filter(human_search, aliens_filtered))
+        aliens_filtered = [item for item in aliens_filtered if item not in user_filter]
+        alien_count = len(list(aliens_filtered))
+        print((aliens_filtered))
+        print(f"\nHumans with '{user_filter_text}' have been removed from the list.")
+        print(f"The old count is '{old_alien_count_beta}' and new count is '{alien_count}'")
+        print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n")
+
+    else:
+        print("Please input YES or NO. Depending on your response.")
 
 notepad_count = int(round((alien_count / 100_000), 0) + 1)
 print(f"Number of list names for aliens: {notepad_count}")
 for i in range(1, notepad_count + 1):
         if i <= 999:
             file_name = f"{alien_folder}names_{i:04d}.txt" 
-            combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=divisible_count)
+            combined_alien_list = notepad.writing_into_file(total_list=aliens_filtered, file_name=file_name, divisible_count=divisible_count)
 
 notepad_count = int(round((len(main_names_list) / 100_000), 0) + 1)
 print(f"Number of list names for humans: {notepad_count}")
@@ -167,9 +204,6 @@ for i in range(1, notepad_count + 1):
         if i <= 999:
             file_name = f"{name_folder}names_{i:04d}.txt" 
             main_names_list = notepad.writing_into_file(total_list=main_names_list, file_name=file_name, divisible_count=divisible_count)
-
-print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n")
-print((aliens_filtered))
 
 print(f"\nOld Total_Names count: {old_total_name_count}\n"
       f"New Total_Names count: {new_total_name_count}\n"
