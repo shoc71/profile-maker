@@ -160,6 +160,7 @@ print((aliens_filtered))
 
 running = True
 
+# Loop list to catch and remove all the human names caught
 while running:
 
     if alien_count == 0:
@@ -167,6 +168,7 @@ while running:
         user_input = "n" # prevent user_input not declared error from raising
         print(f"No aliens with '{alien_scaner_true}' in their name has been found.", end=" " 
               f"This part of the program has been skipped.\n")
+        main_names_list += aliens_filtered
     else:
         user_input = input("This is the current list. Would you like to remove any accidental human adductions? (Y/N) : ")
 
@@ -174,6 +176,7 @@ while running:
         running = False
         alien_count = len(list(aliens_filtered))
         new_total_name_count = len(main_names_list)
+        # main_names_list += aliens_filtered
 
     elif user_input in ["yes", "y", "ye", "yea"]:
         old_alien_count_beta = len(list(aliens_filtered))
