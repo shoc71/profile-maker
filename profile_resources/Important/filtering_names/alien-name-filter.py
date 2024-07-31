@@ -191,12 +191,13 @@ while running:
     else:
         print("Please input YES or NO. Depending on your response.")
 
+combined_alien_list = list(set(alien_names_list)) + aliens_filtered
 notepad_count = int(round((alien_count / 100_000), 0) + 1)
 print(f"Number of list names for aliens: {notepad_count}")
 for i in range(1, notepad_count + 1):
         if i <= 999:
             file_name = f"{alien_folder}names_{i:04d}.txt" 
-            combined_alien_list = notepad.writing_into_file(total_list=aliens_filtered, file_name=file_name, divisible_count=divisible_count)
+            combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=divisible_count)
 
 notepad_count = int(round((len(main_names_list) / 100_000), 0) + 1)
 print(f"Number of list names for humans: {notepad_count}")
