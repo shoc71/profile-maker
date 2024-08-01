@@ -152,11 +152,13 @@ old_alien_count = len(alien_names_list)
 
 alien_count = len(list(aliens_filtered))
 main_names_list = [alien_name for alien_name in main_names_list if alien_name not in aliens_filtered]
+suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered))
 
 # random.shuffle(main_names_list)
 # random.shuffle(alien_names_list)
-print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n\n")
 print((aliens_filtered))
+print(f"\nNumber of aliens found with '{alien_scaner_true}' is {alien_count}\n")
+print(f"Words of interest : {suspicious_filtered_length}\n")
 
 running = True
 
@@ -184,12 +186,15 @@ while running:
         if user_filter_text == "quit":
             continue
         user_filter = list(filter(human_search, aliens_filtered))
+        suspicious_filtered_length = [item for item in suspicious_filtered_length if item not in user_filter]
         aliens_filtered = [item for item in aliens_filtered if item not in user_filter]
+        aliens_filtered = [item for item in aliens_filtered if item not in suspicious_filtered_length]
         alien_count = len(list(aliens_filtered))
         print((aliens_filtered))
         print(f"\nHumans with '{user_filter_text}' have been removed from the list.")
         print(f"The old count is '{old_alien_count_beta}' and new count is '{alien_count}'")
         print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n")
+        print(f"Words of interest : {suspicious_filtered_length}\n")
 
     else:
         print("Please input YES or NO. Depending on your response.")
