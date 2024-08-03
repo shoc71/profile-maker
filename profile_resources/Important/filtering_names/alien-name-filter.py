@@ -158,7 +158,7 @@ suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered)
 # random.shuffle(alien_names_list)
 print((aliens_filtered))
 print(f"\nNumber of aliens found with '{alien_scaner_true}' is {alien_count}\n")
-print(f"Words of interest : {suspicious_filtered_length}\n")
+print(f"Words of interest : {suspicious_filtered_length} - length '{len(suspicious_filtered_length)}'\n")
 
 running = True
 
@@ -186,30 +186,31 @@ while running:
         if user_filter_text == "quit":
             continue
         user_filter = list(filter(human_search, aliens_filtered))
-        suspicious_filtered_length = [item for item in suspicious_filtered_length if item not in user_filter]
         aliens_filtered = [item for item in aliens_filtered if item not in user_filter]
+        suspicious_filtered_length = [item for item in suspicious_filtered_length if item not in user_filter]
         aliens_filtered = [item for item in aliens_filtered if item not in suspicious_filtered_length]
         alien_count = len(list(aliens_filtered))
         print((aliens_filtered))
         print(f"\nHumans with '{user_filter_text}' have been removed from the list.")
-        print(f"The old count is '{old_alien_count_beta}' and new count is '{alien_count}'")
+        print(f"The old count is '{old_alien_count_beta}' and new count is '{alien_count}' - length {len(suspicious_filtered_length)}" 
+              f" BUT list reduction {old_alien_count_beta - alien_count}")
         print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n")
-        print(f"Words of interest : {suspicious_filtered_length}\n")
+        print(f"Words of interest : {suspicious_filtered_length} - length {len(suspicious_filtered_length)}\n")
 
     else:
         print("Please input YES or NO. Depending on your response.")
 
 combined_alien_list = list(set(alien_names_list)) + aliens_filtered
-notepad_count = int(round((alien_count / 100_000), 0) + 1)
-print(f"Number of list names for aliens: {notepad_count}")
-for i in range(1, notepad_count + 1):
+alien_notepad_count = int(round((alien_count / 100_000), 0) + 1)
+print(f"\nNumber of list names for aliens: {alien_notepad_count + 1}")
+for i in range(1, alien_notepad_count + 1):
         if i <= 999:
             file_name = f"{alien_folder}names_{i:04d}.txt" 
             combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=divisible_count)
 
-notepad_count = int(round((len(main_names_list) / 100_000), 0) + 1)
-print(f"Number of list names for humans: {notepad_count}")
-for i in range(1, notepad_count + 1):
+main_notepad_count = int(round((len(main_names_list) / 100_000), 0))
+print(f"Number of list names for humans: {main_notepad_count}")
+for i in range(1, main_notepad_count + 1):
         if i <= 999:
             file_name = f"{name_folder}names_{i:04d}.txt" 
             main_names_list = notepad.writing_into_file(total_list=main_names_list, file_name=file_name, divisible_count=divisible_count)
@@ -219,4 +220,4 @@ print(f"\nOld Total_Names count: {old_total_name_count}\n"
       f"Old Total_Aliens count: {old_alien_count}\n"
       f"New Total_Aliens count: {alien_count + old_alien_count}\n"
       f"Difference Count for Names: {old_total_name_count - new_total_name_count}.\n"
-      f"Difference Count for Aliens: {old_alien_count - alien_count}.")
+      f"Difference Count for Aliens: {alien_count}.")
