@@ -111,7 +111,8 @@ names_directory = []
 aliens_directory = []
 main_names_list = []
 alien_names_list = []
-divisible_count = 100_000
+DIVISIBLE_COUNT = 100_000
+DISPLAY_SUS_LIST = False
 
 ''''''
 
@@ -156,9 +157,26 @@ suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered)
 
 # random.shuffle(main_names_list)
 # random.shuffle(alien_names_list)
+
+'''
+bdgpvy
+ghkmrw
+afjmrw
+gnorvx
+bghlsw
+ahoprx
+pfjpvy
+hinpvz
+cfkpqv
+dgmqxt
+'''
 print((aliens_filtered))
 print(f"\nNumber of aliens found with '{alien_scaner_true}' is {alien_count}\n")
 print(f"Words of interest : {suspicious_filtered_length} - length '{len(suspicious_filtered_length)}'\n")
+display_sus_check = input("Before we continue, would you like to continue to see the list of words that have been filtered outbefore the conditions have been set? (Y/N) : ").lower()
+
+if display_sus_check == "y":
+    DISPLAY_SUS_LIST = True
 
 running = True
 
@@ -195,7 +213,8 @@ while running:
         print(f"The old count is '{old_alien_count_beta}' and new count is '{alien_count}' - length {len(suspicious_filtered_length)}" 
               f" BUT list reduction {old_alien_count_beta - alien_count}")
         print(f"Number of aliens found with '{alien_scaner_true}' is {alien_count}\n")
-        print(f"Words of interest : {suspicious_filtered_length} - length {len(suspicious_filtered_length)}\n")
+        if DISPLAY_SUS_LIST == True:
+            print(f"Words of interest : {suspicious_filtered_length} - length {len(suspicious_filtered_length)}\n")
 
     else:
         print("Please input YES or NO. Depending on your response.")
@@ -206,14 +225,14 @@ print(f"\nNumber of list names for aliens: {alien_notepad_count + 1}")
 for i in range(1, alien_notepad_count + 1):
         if i <= 999:
             file_name = f"{alien_folder}names_{i:04d}.txt" 
-            combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=divisible_count)
+            combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=DIVISIBLE_COUNT)
 
 main_notepad_count = int(round((len(main_names_list) / 100_000), 0))
 print(f"Number of list names for humans: {main_notepad_count}")
 for i in range(1, main_notepad_count + 1):
         if i <= 999:
             file_name = f"{name_folder}names_{i:04d}.txt" 
-            main_names_list = notepad.writing_into_file(total_list=main_names_list, file_name=file_name, divisible_count=divisible_count)
+            main_names_list = notepad.writing_into_file(total_list=main_names_list, file_name=file_name, divisible_count=DIVISIBLE_COUNT)
 
 print(f"\nOld Total_Names count: {old_total_name_count}\n"
       f"New Total_Names count: {new_total_name_count}\n"
