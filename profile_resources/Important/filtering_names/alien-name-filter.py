@@ -147,7 +147,7 @@ def human_search(string: str):
     return user_filter_text.lower() in string.lower()
 
 aliens_filtered = list(filter(alien_search, main_names_list))
-combined_alien_list = list(set(alien_names_list)) + aliens_filtered
+# combined_alien_list = list(set(alien_names_list)) + aliens_filtered
 old_total_name_count = len(main_names_list)
 old_alien_count = len(alien_names_list)
 
@@ -159,15 +159,21 @@ suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered)
 # random.shuffle(alien_names_list)
 
 '''
-bdgpvy
-ghkmrw
 afjmrw
 gnorvx
 bghlsw
 ahoprx
 pfjpvy
+Aegkop
+Aegiuv
 hinpvz
+Bimqux
+Bcdgwy
+Bdhpqy
 cfkpqv
+Degknt
+Apsuwz
+Bdmrux
 dgmqxt
 '''
 print((aliens_filtered))
