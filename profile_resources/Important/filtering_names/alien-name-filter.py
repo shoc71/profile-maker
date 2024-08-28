@@ -161,11 +161,17 @@ suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered)
 '''
 afjmrw
 gnorvx
+Dfgmps
 bghlsw
 ahoprx
 pfjpvy
+Uloaku
 Aegkop
+Lmtuwy
 Aegiuv
+Mprtwx
+Cgnouy
+Cdfiju
 hinpvz
 Bimqux
 Bcdgwy
