@@ -46,7 +46,7 @@ aliens_filtered = list(filter(alien_search, main_names_list))
 old_total_name_count = len(main_names_list)
 old_alien_count = len(alien_names_list)
 
-alien_count = len(list(aliens_filtered))
+alien_count = len(aliens_filtered)
 main_names_list = [alien_name for alien_name in main_names_list if alien_name not in aliens_filtered]
 suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered))
 
@@ -130,8 +130,8 @@ while running:
 
 combined_alien_list = list(set(alien_names_list)) + aliens_filtered
 alien_notepad_count = int(round((alien_count / 100_000), 0) + 2)
-print(f"\nNumber of list names for aliens: {alien_notepad_count + 1}")
-for i in range(1, alien_notepad_count):
+print(f"\nNumber of list names for aliens: {alien_notepad_count}")
+for i in range(1, alien_notepad_count + 1):
     if i <= 999:
         file_name = f"{alien_folder}names_{i:04d}.txt" 
         combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=DIVISIBLE_COUNT)

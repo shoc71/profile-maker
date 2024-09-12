@@ -16,23 +16,19 @@ def notepad_function(file, mode, contents = False):
     """
     if (mode == 'r'):
         with open(file=file, mode='r', encoding='utf-8', errors='ignore') as file:
-            lines = file.read().splitlines()
-        return lines
+            return file.read().splitlines()
     
     if (mode == 'w'):
-        if (contents == False):
-            with open(file=file, mode='w', encoding='utf-8', errors='ignore') as file:
-                file.write('')
+        with open(file=file, mode='w', encoding='utf-8', errors='ignore') as file:
+            if (contents == False):
+                    file.write('')
 
-        else:
-            if isinstance(contents, str):
-                with open(file=file, mode='w', encoding='utf-8', errors='ignore') as file:
-                    file.write(contents)
+            else:
+                if isinstance(contents, str):
+                        file.write(contents)
 
-            elif isinstance(contents, list): 
-                with open(file=file, mode='w', encoding='utf-8', errors='ignore') as file:
-                    new_string = '\n'.join(contents)
-                    file.write(new_string)
+                elif isinstance(contents, list): 
+                    file.write('\n'.join(contents))
 
 def writing_into_file(total_list, file_name, divisible_count):
     sum_100k_list = []
