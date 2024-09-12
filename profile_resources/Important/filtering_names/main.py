@@ -40,13 +40,17 @@ aliens_filtered = list(filter(alien_search, main_names_list))
 old_total_name_count = len(main_names_list)
 old_alien_count = len(alien_names_list)
 
-alien_count = len(aliens_filtered)
-main_names_list = [name for name in main_names_list if name not in aliens_filtered]
+# Separate suspicious words based on length
 suspicious_filtered_length = [name for name in aliens_filtered if len(name) != 6]
+
+# Automatically remove suspicious words from aliens_filtered
+aliens_filtered = [name for name in aliens_filtered if name not in suspicious_filtered_length]
+
+alien_count = len(aliens_filtered)
 
 # Display results
 print(f"\nNumber of aliens found with '{alien_scaner_true}': {alien_count}")
-print(f"Suspicious words: {suspicious_filtered_length}, count: {len(suspicious_filtered_length)}\n")
+print(f"Suspicious words (automatically removed): {suspicious_filtered_length}, count: {len(suspicious_filtered_length)}\n")
 
 running = alien_count > 0
 
@@ -65,7 +69,6 @@ while running:
     elif user_input in ["y", "yes"]:
         user_filter_text = input("Enter the words/characters to remove: ").lower()
         aliens_filtered = [name for name in aliens_filtered if user_filter_text not in name.lower()]
-        suspicious_filtered_length = [name for name in suspicious_filtered_length if user_filter_text not in name.lower()]
         alien_count = len(aliens_filtered)
 
         print(f"\nHumans with '{user_filter_text}' have been removed. New alien count: {alien_count}")
@@ -74,7 +77,7 @@ while running:
     else:
         print("Please input 'yes' or 'no'.")
 
-# --- Fix the File Writing for Alien Names ---
+# --- File Writing for Alien Names ---
 
 # Combine alien list with filtered aliens
 combined_alien_list = list(set(alien_names_list) | set(aliens_filtered))
@@ -95,7 +98,7 @@ for i in range(1, alien_notepad_count + 1):
     # Write chunk to the file
     notepad.notepad_function(file=file_name, mode='w', contents=chunk)
 
-# --- Fix the File Writing for Human Names ---
+# --- File Writing for Human Names ---
 
 # Calculate number of files to write
 main_notepad_count = math.ceil(len(main_names_list) / DIVISIBLE_COUNT)
@@ -121,4 +124,4 @@ print(f"\nOld Total_Names count: {old_total_name_count}\n"
       f"Old Total_Aliens count: {old_alien_count}\n"
       f"New Total_Aliens count: {alien_count + old_alien_count}\n"
       f"Difference Count for Names: {old_total_name_count - new_total_name_count}\n"
-      f"Difference Count for Aliens: {alien_count}")
+      f"Difference Count for Aliens: {alien_count - len(suspicious_filtered_length)}")

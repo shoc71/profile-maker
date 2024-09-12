@@ -53,31 +53,6 @@ suspicious_filtered_length = list(filter(lambda x: len(x) != 6, aliens_filtered)
 # random.shuffle(main_names_list)
 # random.shuffle(alien_names_list)
 
-'''
-afjmrw
-gnorvx
-Dfgmps
-bghlsw
-ahoprx
-pfjpvy
-Uloaku
-Aegkop
-Hkqruz
-Lmtuwy
-Aegiuv
-Mprtwx
-Cgnouy
-Cdfiju
-hinpvz
-Bimqux
-Bcdgwy
-Bdhpqy
-cfkpqv
-Degknt
-Apsuwz
-Bdmrux
-dgmqxt
-'''
 print((aliens_filtered))
 print(f"\nNumber of aliens found with '{alien_scaner_true}' is {alien_count}\n")
 print(f"Words of interest : {suspicious_filtered_length} - length '{len(suspicious_filtered_length)}'\n")
