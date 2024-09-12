@@ -18,8 +18,8 @@ name_folder = 'profile_resources/names_list/'
 alien_folder = 'profile_resources/alien_names/'
 
 # Fetch files
-name_files = os.listdir(name_folder)
-alien_files = os.listdir(alien_folder)
+name_files = sorted(os.listdir(name_folder))
+alien_files = sorted(os.listdir(alien_folder))
 
 # Append file paths to the respective directories
 names_directory = [name_folder + name_file for name_file in name_files]
@@ -52,7 +52,8 @@ running = alien_count > 0
 
 # Loop to handle accidental human abductions
 while running:
-    display_sus_check = input("Would you like to see the filtered list? (Y/N): ").lower()
+    print(aliens_filtered)
+    display_sus_check = input("\nWould you like to see the filtered list? (Y/N): ").lower()
 
     if display_sus_check == "y":
         DISPLAY_SUS_LIST = True
@@ -73,24 +74,44 @@ while running:
     else:
         print("Please input 'yes' or 'no'.")
 
-# Writing the alien names to files
+# --- Fix the File Writing for Alien Names ---
+
+# Combine alien list with filtered aliens
 combined_alien_list = list(set(alien_names_list) | set(aliens_filtered))
-alien_notepad_count = math.ceil(alien_count / DIVISIBLE_COUNT)
+
+# Calculate number of files to write
+alien_notepad_count = math.ceil(len(combined_alien_list) / DIVISIBLE_COUNT)
 
 print(f"\nNumber of alien name files to create: {alien_notepad_count}")
 
+# Write to each file
 for i in range(1, alien_notepad_count + 1):
     file_name = f"{alien_folder}names_{i:04d}.txt"
-    combined_alien_list = notepad.writing_into_file(total_list=combined_alien_list, file_name=file_name, divisible_count=DIVISIBLE_COUNT)
+    # Get the next chunk of names to write to the file
+    start_idx = (i - 1) * DIVISIBLE_COUNT
+    end_idx = start_idx + DIVISIBLE_COUNT
+    chunk = combined_alien_list[start_idx:end_idx]
 
-# Writing the main human names to files
+    # Write chunk to the file
+    notepad.notepad_function(file=file_name, mode='w', contents=chunk)
+
+# --- Fix the File Writing for Human Names ---
+
+# Calculate number of files to write
 main_notepad_count = math.ceil(len(main_names_list) / DIVISIBLE_COUNT)
 
 print(f"\nNumber of human name files to create: {main_notepad_count}")
 
+# Write to each file
 for i in range(1, main_notepad_count + 1):
     file_name = f"{name_folder}names_{i:04d}.txt"
-    main_names_list = notepad.writing_into_file(total_list=main_names_list, file_name=file_name, divisible_count=DIVISIBLE_COUNT)
+    # Get the next chunk of names to write to the file
+    start_idx = (i - 1) * DIVISIBLE_COUNT
+    end_idx = start_idx + DIVISIBLE_COUNT
+    chunk = main_names_list[start_idx:end_idx]
+
+    # Write chunk to the file
+    notepad.notepad_function(file=file_name, mode='w', contents=chunk)
 
 # Final output of statistics
 new_total_name_count = len(main_names_list)
