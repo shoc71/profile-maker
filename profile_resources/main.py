@@ -47,7 +47,7 @@ while True:
     combined_names_count = len(combined_names)
 
     print(f"Before run: {current_names_count}\nAfter run: {combined_names_count}\n")
-    notepad_count = int(round((combined_names_count / 100_000), 0) + 1) # rounding up
+    notepad_count = int(round((combined_names_count / 100_000), 0)) # rounding up
 
     print(f"Number of list names: {notepad_count}\n")
 
