@@ -1,4 +1,4 @@
-# Profile Maker - over 900,000 names
+# Profile Maker - over 700,000 names
 
 Biggest list of names that you'll find on the internet. 
 
@@ -17,7 +17,6 @@ Potential "Sources":
 - naming websites
 - dictionaries
 - scientific papers
-- criminal records
 
 I would personally like to thank;
 - https://www.dictionary.com/
