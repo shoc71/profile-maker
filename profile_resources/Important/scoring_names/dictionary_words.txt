@@ -497,7 +497,6 @@ abyssal
 plain
 abyssopelagic
 abˈduction
-ac
 ac-
 acacia
 acad
@@ -686,7 +685,6 @@ accordance
 accordant
 accordatura
 according
-as
 Hoyle
 accounts
 accordingly
@@ -2415,7 +2413,6 @@ ague
 agueweed
 aguish
 agura
-ah
 aha
 moment
 ahankara
@@ -2436,7 +2433,6 @@ ahu
 ahull
 ahungered
 ahuru
-ai
 aid
 climbing
 station
@@ -3109,9 +3105,7 @@ square
 systems
 go
 talk
-and
 no
-action
 that
 glitters
 is
@@ -3132,7 +3126,6 @@ wool
 yard
 wide
 play
-makes
 Jack
 dull
 boy
@@ -3491,7 +3484,6 @@ alt-right
 alt-rock
 country
 altar
-boy
 bread
 girl
 repose
@@ -5979,7 +5971,6 @@ aquí
 se
 habla
 español
-ar
 ar-
 ara-C
 araara
@@ -9690,7 +9681,6 @@ bbl
 bc
 bcc
 bch
-bd
 ft
 bde
 bdellium
@@ -11626,7 +11616,6 @@ bkpr
 bkpt
 bks
 bkt
-bl
 blab
 blabber
 blabbermouth
@@ -12676,8 +12665,6 @@ boloney
 bolshie
 bolson
 bolstered
-out
-of
 upright
 bolt-action
 bolt-hole
@@ -14190,7 +14177,6 @@ bryology
 bryophyllum
 bryophyte
 bryozoan
-bs
 bsh
 bskt
 bsl
@@ -15038,7 +15024,6 @@ bête
 noire
 bêtise
 bā
-
 csc
 c'est
 autre
@@ -16713,8 +16698,6 @@ catbrier
 catcall
 Tartar
 napping
-of
-cold
 red-handed
 rays
 z's
@@ -16966,7 +16949,6 @@ caˈcophonous
 cb
 cc
 ccw
-cd
 cdf
 ceanothus
 cease
@@ -17388,7 +17370,6 @@ cetyl
 cetylic
 ceviche
 cezve
-cf
 cfd
 cfh
 cfi
@@ -19809,7 +19790,6 @@ clypeate
 clypeus
 clysis
 clyster
-cm
 cmd
 cmdg
 cml
@@ -19823,7 +19803,6 @@ cnidocil
 cnidocyst
 cnidogenous
 cnidophore
-co
 co-
 co-anchor
 co-boss
@@ -20660,7 +20639,6 @@ combustion
 combustor
 comd
 comdg
-again
 high
 handy
 enough
@@ -24085,7 +24063,6 @@ crêpe
 suzette
 crêperie
 cs
-csc
 csch
 csk
 ct
@@ -28732,7 +28709,6 @@ spadework
 unto
 others
 them
-me
 do's
 don'ts
 doing
@@ -33424,7 +33400,6 @@ everwhere
 everwhich
 Tom
 Harry
-
 helps
 himself
 counts
@@ -34302,7 +34277,6 @@ f-stop
 f-system
 f-word
 q
-f
 f2f
 fL
 fMRI
@@ -36374,7 +36348,6 @@ flocculent
 precipitate
 flocculus
 floccus
-flock
 flockbed
 flocking
 flocky
@@ -37524,7 +37497,6 @@ gift
 reaching
 running
 socage
-throw
 vibration
 free-air
 free-associate
@@ -39259,7 +39231,6 @@ involved
 lost
 mileage
 scot-free
-together
 examined
 money's
 onto
@@ -39276,7 +39247,6 @@ theirs
 tough
 used
 what's
-wise
 get-at-able
 get-go
 get-out
@@ -39531,7 +39501,6 @@ givey
 gizmo
 gizzard
 shad
-gl
 glabella
 glabellum
 glabrate
@@ -40609,7 +40578,6 @@ grapple
 grappling
 graptolite
 grapy
-clutch
 grasping
 greener
 parakeet
@@ -44852,17 +44820,8 @@ hovercraft
 hovering
 hoverport
 hovertrain
-how
-that
-you
-come
-do
-dance
-pin
-so
 lies
 how's
-tricks
 how-do-you-do
 how-to
 howbeit
@@ -48857,7 +48816,6 @@ irrotational
 irrupt
 irruption
 irruptive
-fact
 is-
 isabnormal
 isacoustic
@@ -50533,7 +50491,6 @@ kingbird
 kingbolt
 kingcraft
 kingcup
-horse
 My
 kingfish
 kinghood
@@ -56605,7 +56562,6 @@ mezzo-relievo
 mezzo-soprano
 mezzotint
 ningoˈcoccall
-mf
 mfd
 mfg
 mfr
@@ -58674,9 +58630,7 @@ mq
 mrem
 mridang
 mridanga
-ms
 msb
-msec
 msg
 msl
 mt
@@ -59425,7 +59379,6 @@ na
 nc
 nf
 ns
-na
 naan
 naartjie
 nab
@@ -59759,7 +59712,6 @@ nazify
 nazir
 naïf
 nb
-nc
 nd
 nde
 plus
@@ -60339,7 +60291,6 @@ newton-meter
 next-door
 nexus
 gotiˈation
-nf
 ng
 ngai
 ngaio
@@ -61424,7 +61375,6 @@ noˈmadic
 noˈstalgic
 np
 nr
-ns
 nt
 nth
 nu
@@ -63184,7 +63134,6 @@ orts
 oryx
 orzo
 orˈthoptist
-os
 oscar
 oscillate
 oscillating
@@ -65518,7 +65467,6 @@ pct
 pd
 pdl
 pdq
-pe
 pe-tsai
 pea-brain
 pea-souper
@@ -72410,7 +72358,6 @@ quirt
 quis
 custodiet
 ipsos
-custodes
 separabit
 quisling
 quist
@@ -72430,8 +72377,6 @@ quixotism
 quiz
 quizmaster
 quizzical
-animo
-jure
 vadis
 warranto
 quoad
@@ -76923,12 +76868,10 @@ saxifragaceous
 saxitoxin
 saxony
 saxtuba
-cry
 sayable
 sayest
 sayonara
 says
-who
 sayyid
 sazerac
 sb
@@ -79120,7 +79063,6 @@ shay
 shaykh
 shazam
 shaʿir
-she
 she'd
 she'll
 she's
@@ -85376,7 +85318,6 @@ swanky
 swannery
 swansdown
 swanskin
-switch
 swaption
 swaraj
 sward
@@ -87289,7 +87230,6 @@ thar
 us
 that'd
 that'll
-
 bounces
 thataway
 thatch
@@ -89093,9 +89033,6 @@ tranquilize
 tranquillity
 tranquillize
 tranquillizer
-trans
-trans
-trans
 trans-Mississippi
 trans-Neptunian
 trans-fat
@@ -94151,7 +94088,6 @@ vutty
 vuvuzela
 vv
 vying
-w
 wm
 wo
 wa'
@@ -94426,7 +94362,6 @@ warty
 wary
 warzone
 wasabi
-laundry
 wash-and-wear
 wash-hand
 wash-leather
@@ -95077,9 +95012,7 @@ wharfie
 wharfinger
 wharve
 wharves
-for
 gives
-it
 what'd
 what'll
 what've
@@ -95147,7 +95080,6 @@ where'er
 where'll
 where're
 where's
-beef
 where've
 whereabout
 whereabouts
@@ -95824,7 +95756,6 @@ wk
 wkly
 wl
 wmk
-wo
 woad
 woaded
 woadwaxen
@@ -96655,7 +96586,6 @@ yorp
 yotta-
 yottabyte
 yottahertz
-something
 I'll
 you'd
 you've
@@ -98208,7 +98138,6 @@ Vlorë
 Bayonne
 Bayqongyr
 Bayreuth
-St
 Louis
 Baytīn
 Bayt
@@ -98554,7 +98483,6 @@ Salt
 Flats
 Bononia
 Booker
-T
 Washington
 Boone
 Boothia
@@ -100646,7 +100574,6 @@ Frankfurt
 Main
 Oder
 Franklin
-D
 Roosevelt
 Franks
 Franz
@@ -101184,7 +101111,6 @@ Guntur
 Gurabo
 Gurnee
 Gustavo
-A
 Madero
 Villa
 Guyana

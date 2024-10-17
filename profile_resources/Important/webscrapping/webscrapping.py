@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 '''
 read websites robots.txt before web-scrapping the whole website
 '''
-file_location = "profile_resources/Important/"
+file_location = "profile_resources/Important/webscrapping/"
 file = 'collected_words.txt'
 target_file = file_location + file
 
@@ -23,7 +23,7 @@ def scrapping_words(url):
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Try to find the parent element that contains the word list
-    parent_element = soup.find('div', class_='mw-grid-table-list') # Inspect element and find the correct class, to make this work
+    parent_element = soup.find('div', class_='dDeYl3zUalQgXsSgFtAi') # Inspect element and find the correct class, to make this work
     if not parent_element:
         print(f"\nParent element not found on page {url}\n")
         return []
@@ -73,10 +73,10 @@ def are_words_same(prev_words, curr_words):
     return prev_words == curr_words
 
 # Base URL for the pages to scrape
-# letters = "abcdefghijklmnopqrstuvwxyz"
-letters = "a"
-# base_url = "https://www.dictionary.com/list/"
-base_url = 'https://www.merriam-webster.com/browse/dictionary/'
+letters = "abcdefghijklmnopqrstuvwxyz"
+# letters = "a"
+base_url = "https://www.dictionary.com/list/"
+# base_url = 'https://www.merriam-webster.com/browse/dictionary/'
 
 all_words = []
 limit_dict = {}
@@ -92,7 +92,7 @@ for letter in letters:
     while True:
         # Construct the URL for the current page
         url = f"{base_url_letter}{page_number}"
-        url = f"{base_url}geo/{page_number}"
+        # url = f"{base_url}geo/{page_number}"
         
         try:
             response = requests.get(url)
@@ -102,10 +102,10 @@ for letter in letters:
             break
             
         # Check if the URL matches any disallowed paths
-        if any(path in url for path in disallowed_paths):
-            print(f"Skipping disallowed path: {url}")
-            page_number += 1
-            continue
+        # if any(path in url for path in disallowed_paths):
+        #     print(f"Skipping disallowed path: {url}")
+        #     page_number += 1
+        #     continue
         
         soup = BeautifulSoup(response.content, 'html.parser')
         
@@ -141,8 +141,11 @@ for letter in letters:
     print(f"Completed scraping for letter '{letter}'. Moving to the next letter.\n")
     prev_words = None  # Reset prev_words for the next letter
 
+# Removing duplicates
+# all_words = list(set(all_words))
+
 # Join all words into a single string with each word on a new line
-all_words_string = '\n'.join(all_words)
+all_words_string = '\n'.join(all_words).replace(",","\n").replace("ˌ","\n").replace(".","\n")
 
 # Save the collected words to a text file
 with open(target_file, 'w', encoding='utf-8', errors='ignore') as file:

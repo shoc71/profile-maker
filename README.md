@@ -18,3 +18,7 @@ Potential "Sources":
 - dictionaries
 - scientific papers
 - criminal records
+
+I would personally like to thank;
+- https://www.dictionary.com/
+- https://www.merriam-webster.com/browse/dictionary/
