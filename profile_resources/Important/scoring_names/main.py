@@ -1,20 +1,33 @@
+# Imports
 import string
 
 # Define vowels and consonants
 VOWELS = "AEIOUaeiou"
 CONSONANTS = ''.join([letter for letter in string.ascii_letters if letter not in VOWELS])
 NUMBERS = string.digits
+SEMI_VOWELS = 'YyLlSs'
 
 # List of basic words for the Skyllr exception
 EXCEPTION_WORDS = ["sky", "star", "moon"]  # Add more words as needed
+EXCEPTION_WORDS += ['Rhythm', 'Dry',
+'Cry',
+'Cyst',
+'Gym', 
+'Try',
+'Spy',
+'Hymn',
+'Tryst']
+
+names_of_interest = []
+names_to_remove = []
 
 # Function to check the number of consecutive consonants
-def check_consonant_streak(name, max_streak=5):
+def check_consonant_streak(name, max_streak=4):
     consonant_count = 0
     for char in name:
         if char in CONSONANTS:
             consonant_count += 1
-            if consonant_count > max_streak:
+            if consonant_count >= max_streak:
                 return False
         else:
             consonant_count = 0
@@ -105,6 +118,42 @@ def basic_word_exception(name):
             return True
     return False
 
+# Function to check if there are 4 or more consecutive letters in alphabetical sequence
+def check_alphabetical_sequence(name, sequence_length=4):
+    # Convert the name to lowercase to make it case-insensitive
+    name = name.lower()
+
+    # Iterate through the name and check for alphabetical sequences
+    for i in range(len(name) - sequence_length + 1):
+        # Check if the next `sequence_length` characters are in alphabetical order
+        is_alphabetical = True
+        for j in range(sequence_length - 1):
+            if ord(name[i + j]) + 1 != ord(name[i + j + 1]):
+                is_alphabetical = False
+                break
+        if is_alphabetical:
+            return True
+    return False
+
+# Function to check for 4 or more consecutive vowels
+def check_consecutive_vowels(name, max_vowel_streak=4):
+    vowel_count = 0
+    for char in name:
+        if char in VOWELS:
+            vowel_count += 1
+            if vowel_count >= max_vowel_streak:
+                return True  # 4 or more consecutive vowels found
+        else:
+            vowel_count = 0  # Reset if a consonant is found
+    return False  # No 4+ consecutive vowels found
+
+# Function to check for semi-vowels in the name
+def check_semi_vowels(name):
+    for char in name:
+        if char in SEMI_VOWELS:
+            return True  # Semi-vowel found
+    return False  # No semi-vowels found
+
 # Function to score the name based on the parameters and return deductions
 def score_name(name):
     score = 100
@@ -113,17 +162,17 @@ def score_name(name):
     # Parameter 1: Names can not shorter than two characters
     if not check_name_length(name):
         score -= 50  # Penalty for too short
-        deductions.append("Name too short (<= 3 characters)")
+        deductions.append("<= 3 characters Rule")
     
     # Parameter 2: No more than 5 consecutive consonants
     if not check_consonant_streak(name):
         score -= 100  # Penalty for having more than 5 consecutive consonants
-        deductions.append("5+ Consecutive Consonants Rule")
+        deductions.append("4+ Consecutive Consonants Rule")
     
     # Parameter 3: Vowel every 2-3 consonants
     if not check_vowel_spacing(name):
-        score -= 70  # Penalty for improper vowel spacing
-        deductions.append("Vowel spacing not met (every 2-3 consonants)")
+        score -= 50  # Penalty for improper vowel spacing
+        deductions.append("Vowel spacing Rule")
 
     # Parameter 4: First three consonants
     if check_first_three_consonants(name):
@@ -132,7 +181,7 @@ def score_name(name):
 
     # Parameter 5: First three consonants
     if check_last_three_consonants(name):
-        score -= 50  # Deduct 50 points
+        score -= 30  # Deduct 50 points
         deductions.append("Last Three Consonants Rule")
 
     # Parameter 6: First three letters have two or more vowels
@@ -142,8 +191,23 @@ def score_name(name):
 
     # Parameter 7: Basic words Exception
     if basic_word_exception(name):
-        score += 90  # Add points for exception
-        deductions.append("Basic Word exception applied (+90 points)")
+        score += 190  # Add points for exception
+        deductions.append("Basic Word Exception")
+
+    # Parameter 8: Check for Alphabetical Sequence
+    if check_alphabetical_sequence(name):
+        score -= 15
+        deductions.append("Alphabetical Sequence Rule")
+
+    # Parameter 9: 4+ vowels consecutive check
+    if check_consecutive_vowels(name):
+        score -= 30  # Deduct points
+        deductions.append("4+ Consecutive Vowels Rule")
+
+    # Parameter 10: Semi-vowel check
+    if check_semi_vowels(name):
+        score += 2  # Deduct points for having semi-vowels
+        deductions.append("Semi-Vowel Rule")
     
     # Cap the score at 100
     score = min(score, 100)
@@ -170,13 +234,35 @@ def print_sorted_names_by_score(scored_names):
     for name, details in sorted_names:
         print(f"Name: {name}, Score: {details['score']}, Deductions: {details['deductions']}")
 
+        if details['score'] != 0:
+            names_of_interest.append(name)
+        else:
+            names_to_remove.append(name)
 
-names = ["Jack", "Skyllr", "Bbbbby", "Eliot", "Jnzgt", "Abcdefg", 'kk']
-names += ['', 'g', 'Tyrannosaurus', 'mkls', 'rex']
+names = []
 
 test_names = '''
-Aekqxy
 Anoprw
+Dgimxz
+Bfhimq
+Ehpqvz
+Lwa
+shh
+psst
+hmm
+boat
+nth
+north
+south
+east
+aorta
+biology
+diagram
+Euouae
+eon
+geology
+iodine
+koala
 afjmrw
 gnorvx
 Dfgmps
@@ -191,11 +277,13 @@ Hituyz
 Abdlnt
 Hkqruz
 Lmtuwy
+lmnop
 Adhlsy
 Aefruv
 Abklor
 Celqvy
 Bcilwz
+aidi
 Bgknrw
 Efijpu
 Bgortu
@@ -218,6 +306,7 @@ test = test_names.split('\n')
 for t in test:
     names.append(t.title())
 
-
 # Output the results
 print_sorted_names_by_score(score_names(names))
+print(f"Good to use-ish : {names_of_interest}")
+print(f"Names to remove : {names_to_remove}")
