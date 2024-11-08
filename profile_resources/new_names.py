@@ -8,4 +8,4 @@ def new_name(txt_filename, number_of_names):
             print(f"{n+1}. {fname} {lname}")
             # return f"{n+1}. {fname} {lname}"
 
-new_name("profile_resources/names_list/names_0001.txt", 5)
+new_name("profile_resources/names_list/names_0002.txt", 5)
