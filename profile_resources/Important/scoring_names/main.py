@@ -20,14 +20,20 @@ def get_score(item):
 # Function to print the names sorted by their score
 def print_sorted_names_by_score(scored_names):
     sorted_names = sorted(scored_names.items(), key=get_score, reverse=True)
+    order = 0
 
     for name, details in sorted_names:
-        print(f"Name: {name}, Score: {details['score']}, Deductions: {details['deductions']}")
+        order += 1
+        print(
+            f"{order}. "
+            f"Name: {name}, Score: {details['score']}, Deductions: {details['deductions']}"
+            f"\n"
+        )
 
-        if details['score'] != 0:
-            names_of_interest.append(name)
-        else:
+        if details['score'] != 100:
             names_to_remove.append(name)
+        else:
+            names_of_interest.append(name)
 
 names = []
 
@@ -41,8 +47,11 @@ afjmrw
 gnorvx
 Dfgmps
 bghlsw
+liege
+regfer
 Abejns
 ahoprx
+piccolo
 pfjpvy
 Befmoq
 Cimoqw
@@ -81,5 +90,11 @@ for t in test:
 
 # Output the results
 print_sorted_names_by_score(score_names(names))
-print(f"Good to use-ish : {names_of_interest}")
-print(f"Names to remove : {names_to_remove}")
+print(
+    f"\n"
+    f"Good to use-ish : {names_of_interest}"
+)
+print(
+    f"\n"
+    f"Names to remove : {names_to_remove}"
+)

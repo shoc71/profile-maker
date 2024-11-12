@@ -59,13 +59,13 @@ def score_name(name):
     # Parameter 11: Prefix Rule
     prefix_status, prefix = Parameters.check_prefix(name)
     if prefix_status:
-        score += 20  # Deduct points for matching prefix
+        score += 10  # Deduct points for matching prefix
         deductions.append(f"11. Prefix Rule: '{prefix}'")
 
     # Parameter 12: Suffix Rule
     suffix_status, suffix = Parameters.check_suffix(name)
     if suffix_status:
-        score += 20  # Deduct points for matching suffix
+        score += 25  # Deduct points for matching suffix
         deductions.append(f"12. Suffix Rule: '{suffix}'")
 
     # Parameter 13: Inverse Scramble Rule, Scoring points for common words
@@ -75,8 +75,8 @@ def score_name(name):
 
     # Parameter 14: Scramble Rule, Reducing points for un-common words
     scramble_deduction = Parameters.scramble_score(name)
-    score -= scramble_deduction
-    deductions.append(f"14. Scramble Rule Deduction: {scramble_deduction} points")
+    score -= (scramble_deduction * 1.5)
+    deductions.append(f"14. Scramble Rule Deduction: -{scramble_deduction} points")
 
     # Cap the score at 100
     score = min(score, 100)
