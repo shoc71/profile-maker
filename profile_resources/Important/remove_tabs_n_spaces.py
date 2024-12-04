@@ -26,14 +26,14 @@ def formatting_string(list_of_str, replace) -> str:
     return linestr
 
 # Removing any extras space
-def remove_extras(string) -> str:
+def remove_extras(string:str) -> str:
     lirt = str(string).split("\n")
     n_list = list(dict.fromkeys(lirt))
     lirt_str = '\n'.join(n_list)
     return lirt_str
 
 # Splitting Title Case Words
-def split_title_case(string) -> str:
+def split_title_case(string:str) -> str:
     newstring = ''
     for letter in string:
         # Check if character is uppercase and a letter
