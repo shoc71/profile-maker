@@ -22,3 +22,4 @@ I would personally like to thank;
 - https://www.dictionary.com/
 - https://www.merriam-webster.com/browse/dictionary/
 - https://www.reddit.com/r/namenerds/
+- https://www.merriam-webster.com/wordfinder/classic/

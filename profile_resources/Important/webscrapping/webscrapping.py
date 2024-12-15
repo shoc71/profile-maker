@@ -23,7 +23,7 @@ def scrapping_words(url):
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Try to find the parent element that contains the word list
-    parent_element = soup.find('div', class_='dDeYl3zUalQgXsSgFtAi') # Inspect element and find the correct class, to make this work
+    parent_element = soup.find('div', class_='sbl_word_groups') # Inspect element and find the correct class, to make this work
     if not parent_element:
         print(f"\nParent element not found on page {url}\n")
         return []
@@ -75,8 +75,11 @@ def are_words_same(prev_words, curr_words):
 # Base URL for the pages to scrape
 letters = "abcdefghijklmnopqrstuvwxyz"
 # letters = "a"
-base_url = "https://www.dictionary.com/list/"
+# base_url = "https://www.dictionary.com/list/"
 # base_url = 'https://www.merriam-webster.com/browse/dictionary/'
+# base_url = 'https://www.merriam-webster.com/wordfinder/classic/any-order/all/-1/'
+# base_url = 'https://www.thefreedictionary.com/words-containing-'
+base_url = 'https://scrabble.merriam.com/words/with/'
 
 all_words = []
 limit_dict = {}
@@ -154,3 +157,10 @@ with open(target_file, 'w', encoding='utf-8', errors='ignore') as file:
 print("\nAll words collected:")
 print(f"Total Number of Collected : {len(all_words)}")
 print(f"This is how many pages that existed for each letter on {base_url}.\n\n{limit_dict}")
+
+'''
+for mariam word lookup
+{'a': 398, 'b': 105, 'c': 227, 'd': 179, 'e': 461, 'f': 62, 'g': 140, 'h': 155, 'i': 409, 'j': 11, 'k': 53, 'l': 271, 'm': 173, 'n': 329, 'o': 336, 'p': 175, 'q': 10, 'r': 356, 's': 405, 't': 331, 'u': 183, 'v': 51, 'w': 41, 'x': 20, 'y': 104, 'z': 30}
+
+
+'''
