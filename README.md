@@ -17,6 +17,9 @@ Potential "Sources":
 - naming websites
 - dictionaries
 - scientific papers
+- sporting websites
+- scramble & scramble-solver
+- baby-naming websites
 
 I would personally like to thank;
 - https://www.dictionary.com/

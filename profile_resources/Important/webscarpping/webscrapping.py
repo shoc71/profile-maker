@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import time
 
 '''
 read websites robots.txt before web-scrapping the whole website
@@ -17,13 +18,13 @@ def scrapping_words(url):
         response.raise_for_status()
         
     except requests.exceptions.RequestException as e:
-        print(f"Failed to retrieve page {url}: {e}")
+        print(f"Failed to retrieve page {url}: {e} 1")
         return []
     
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Try to find the parent element that contains the word list
-    parent_element = soup.find('div', class_='sbl_word_groups') # Inspect element and find the correct class, to make this work
+    parent_element = soup.find('div', class_='section_content') # Inspect element and find the correct class, to make this work
     if not parent_element:
         print(f"\nParent element not found on page {url}\n")
         return []
@@ -54,7 +55,7 @@ def get_disallowed_paths(base_url):
         response.raise_for_status()
         robots_content = response.text
     except requests.exceptions.RequestException as e:
-        print(f"Failed to retrieve {robots_url}: {e}")
+        print(f"Failed to retrieve {robots_url}: {e} 2")
         return []
 
     # Parse robots.txt content to find disallowed paths
@@ -79,7 +80,8 @@ letters = "abcdefghijklmnopqrstuvwxyz"
 # base_url = 'https://www.merriam-webster.com/browse/dictionary/'
 # base_url = 'https://www.merriam-webster.com/wordfinder/classic/any-order/all/-1/'
 # base_url = 'https://www.thefreedictionary.com/words-containing-'
-base_url = 'https://scrabble.merriam.com/words/with/'
+# base_url = 'https://scrabble.merriam.com/words/with/'
+base_url = 'https://www.baseball-reference.com/players/'
 
 all_words = []
 limit_dict = {}
@@ -94,21 +96,22 @@ for letter in letters:
 
     while True:
         # Construct the URL for the current page
-        url = f"{base_url_letter}{page_number}"
+        # url = f"{base_url_letter}{page_number}"
+        url = f"{base_url_letter}"
         # url = f"{base_url}geo/{page_number}"
         
         try:
             response = requests.get(url)
             response.raise_for_status()
         except requests.exceptions.RequestException as e:
-            print(f"Failed to retrieve page {url}: {e}")
-            break
+            if response.status_code == 429:  # Too Many Requests
+                retry_after = int(response.headers.get('Retry-After', 5))  # Default retry after 5 seconds
+                print(f"Rate limited. Retrying after {retry_after} seconds...")
+                time.sleep(retry_after)
+                continue
             
-        # Check if the URL matches any disallowed paths
-        # if any(path in url for path in disallowed_paths):
-        #     print(f"Skipping disallowed path: {url}")
-        #     page_number += 1
-        #     continue
+            print(f"Failed to retrieve page {url}: {e} 3")
+            break
         
         soup = BeautifulSoup(response.content, 'html.parser')
         
@@ -143,9 +146,6 @@ for letter in letters:
     # Move to the next letter in the alphabet
     print(f"Completed scraping for letter '{letter}'. Moving to the next letter.\n")
     prev_words = None  # Reset prev_words for the next letter
-
-# Removing duplicates
-# all_words = list(set(all_words))
 
 # Join all words into a single string with each word on a new line
 all_words_string = '\n'.join(all_words).replace(",","\n").replace("ˌ","\n").replace(".","\n")
