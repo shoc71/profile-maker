@@ -1,4 +1,4 @@
-# Profile Maker - over 700,000 names
+# Profile Maker - over 850,000 names
 
 Biggest list of names that you'll find on the internet. 
 
