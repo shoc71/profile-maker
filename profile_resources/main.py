@@ -63,7 +63,7 @@ while True:
         break
 
     elif (combined_names_count) != (current_names_count):
-        print(f"Difference of -[{combined_names_count - current_names_count}]- words bewteen Old and New Names.txt file(s).\n")
+        print(f"Difference of -[ {combined_names_count - current_names_count} ]- words bewteen Old and New Names.txt file(s).\n")
 
     elif (combined_names_count) == (current_names_count): 
         end_time = time.time()
