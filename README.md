@@ -2,7 +2,7 @@
 
 Biggest list of names that you'll find on the internet. 
 
-With over, **900,000 names** in the names_list directory, you can make a zillion unique names to your heart's desire.
+With over, **850,000 names** in the names_list directory, you can make a zillion unique names to your heart's desire.
 Just download the repository or take whatever resources you like but at least credit this repository.
 
 ### -----------
