@@ -1,9 +1,9 @@
-Number of times this code has been run : 271
+Number of times this code has been run : 274
 Initial count of names was 15 lol...
 
-Code was last run on 18/Dec/2024 on 19:41:05
-Last run_time of the program was: 3.0560 seconds
+Code was last run on 18/Dec/2024 on 21:39:33
+Last run_time of the program was: 3.0528 seconds
 
 Number of notepad containing all the names: 9
 
-Total Number of Names: 864381
+Total Number of Names: 864391
