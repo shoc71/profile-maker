@@ -53,7 +53,7 @@ while True:
 
     for i in range(1, notepad_count + 1):
         if i <= 999:
-            file_name = f"{list_dir_of_names}names_{i:04d}.txt" # game breaking
+            file_name = f"{list_dir_of_names}names_{i:03d}.txt" # game breaking
             combined_names = notepad.writing_into_file(total_list=combined_names, file_name=file_name, divisible_count=divisible_count)
 
     combined_names = []
@@ -78,18 +78,3 @@ while True:
         # Keeping Track of all the instances this program has been run (for fun from now on.)
         program_tracker.track_program_runs(filepath_for_tracker, combined_names_count, total_run_time)
         break
-
-'''
-for i in range(1, notepad_count + 1): # ranges end 1 before, so the +1 is to make up for it
-            if i <= 9:
-                file_name = (f"{list_dir_of_names}names_000{i}.txt")
-                combined_names = notepad.writing_into_file(total_list=combined_names, file_name=file_name, divisible_count=divisible_count)
-
-            elif (i > 9) and (i <= 99):
-                file_name = (f"{list_dir_of_names}names_00{i}.txt")
-                combined_names = notepad.writing_into_file(total_list=combined_names, file_name=file_name, divisible_count=divisible_count)
-
-            elif (i > 99) and (i <= 1000):
-                file_name = (f"{list_dir_of_names}names_0{i}.txt")
-                combined_names = notepad.writing_into_file(total_list=combined_names, file_name=file_name, divisible_count=divisible_count)
-'''
