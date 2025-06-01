@@ -14,8 +14,10 @@ except:
 
 # Filepath and File
 filepath = 'profile_resources/input.txt'
-
 space_list = [' ', '–', "−"]
+
+# there are special characters like emojis and different_spaces that I don't want included in the names list
+LIST_FILTERING = indent_list + brands_list + extras_list + char_list + special_list_all + space_list
 
 # Formating any mentioned characters
 def formatting_string(list_of_str, replace) -> str:
@@ -26,14 +28,14 @@ def formatting_string(list_of_str, replace) -> str:
     return linestr
 
 # Removing any extras space
-def remove_extras(string:str) -> str:
+def remove_extras(string : str) -> str:
     lirt = str(string).split("\n")
     n_list = list(dict.fromkeys(lirt))
     lirt_str = '\n'.join(n_list)
     return lirt_str
 
 # Splitting Title Case Words
-def split_title_case(string:str) -> str:
+def split_title_case(string : str) -> str:
     newstring = ''
     for letter in string:
         # Check if character is uppercase and a letter
@@ -45,7 +47,7 @@ def split_title_case(string:str) -> str:
 
 
 # Fixing apostrophe
-def fixing_apostrophe(name: str) -> str:
+def fixing_apostrophe(name : str) -> str:
     # Ensure apostrophe is followed by a lowercase letter
     parts = name.split("'")
     if len(parts) > 1:
@@ -55,19 +57,25 @@ def fixing_apostrophe(name: str) -> str:
         name = "'".join(parts)
     return name
 
+# Remove '-' at the end
+def dash_end_removal(name : str) -> str:
+    if len(name) < 1:
+        return ''
+    
+    if ("'" in name[-1]):
+        print(name)
+        return name[:-1]
+    return name
 
 # Opening and Reading Input File
 with open (filepath, 'r', encoding='utf-8') as f:
     current_names = f.readlines()
-    linestr = ''.join(current_names)
+    names_refreshed = [dash_end_removal(names) for names in current_names]
+    linestr = ''.join(names_refreshed)
     linestr = split_title_case(linestr)
-    linestr = formatting_string(space_list, "\n")
-    linestr = formatting_string(indent_list, '\n')
-    linestr = formatting_string(char_list, '\n')
-    linestr = formatting_string(special_list_all, "\n")
-    linestr = formatting_string(extras_list, '\n')
-    linestr = formatting_string(brands_list, '\n')
+    linestr = formatting_string(LIST_FILTERING, '\n')
     linestr = fixing_apostrophe(linestr)
+    # linestr = dash_end_removal(linestr)
     linestr = remove_extras(linestr).title()
 
 # Writing on File and UI of the Number of Contents in Input.txt
