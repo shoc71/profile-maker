@@ -27,11 +27,14 @@ while True:
     names_list = []
     current_names = []
 
+    # Searching for all files in mentioned directory
     files = os.listdir(list_dir_of_names)
 
+    # Adding all files into a list from directory (name1.txt, name2.txt, ...)
     for file in files:
         names_list.append(list_dir_of_names + file)
 
+    # Going through all the names/words in each file and adding them to the list
     for names in names_list:
         current_names += notepad.notepad_function(file=names, mode='r')
 
